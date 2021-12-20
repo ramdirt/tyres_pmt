@@ -24,7 +24,6 @@ export default {
     async loadCatalog() {
        const res = await axios.get(this.url)
        this.tyres.push(res.data[0])
-       console.log(this.tyres)
     }
   },
   mounted() {
