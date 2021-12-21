@@ -14,7 +14,6 @@ export default {
   data() {
     return {
       url: 'https://tyres-pmt-default-rtdb.europe-west1.firebasedatabase.app/tyres.json',
-      tyres: []
     }
   },
   components: {
@@ -23,7 +22,7 @@ export default {
   methods: {
     async loadCatalog() {
        const res = await axios.get(this.url)
-       this.tyres.push(res.data[0])
+       this.$store.state.tyres = res.data
     }
   },
   mounted() {
