@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <the-header></the-header>
+  <div class="container" v-cloak>
+    <the-header v-cloak></the-header>
     <router-view />
   </div>
 
@@ -33,4 +33,5 @@ export default {
 
 
 <style>
+[v-cloak] { display:none; }
 </style>

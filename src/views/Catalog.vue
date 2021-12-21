@@ -1,10 +1,10 @@
 <template>
-  <div class="mt-5">
-    <app-card
-      v-for="tyre in this.$store.getters.newTyres"
-      :key="tyre.id"
-      :tyre="tyre"
-    ></app-card>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-2 mt-sm-0">
+        <app-card
+          v-for="tyre in this.$store.getters.newTyres"
+          :key="tyre.id"
+          :tyre="tyre"
+        ></app-card>
   </div>
 </template>
 
@@ -17,3 +17,6 @@ import AppCard from '../components/AppCard.vue'
     },
   }
 </script>
+
+<style>
+</style>

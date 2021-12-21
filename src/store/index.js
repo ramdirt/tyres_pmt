@@ -9,7 +9,7 @@ export default createStore({
     },
     getters: {
         newTyres(state) {
-            return state.tyres.splice(15, 5)
+            return state.tyres.filter(tyre => tyre.id <= 5)
         }
     }
 })

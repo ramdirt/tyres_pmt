@@ -1,23 +1,23 @@
 <template>
-  <div class="card" style="width: 18rem;">
-    <img v-bind:src=imgURL class="card-img-top" alt="">
-    <div class="card-body">
-        <h5 class="card-title">Покрышка {{ tyre.title }}</h5>
-        <p class="card-text">{{ tyre.description }}</p>
-        <p class="card-text">Стоимость: {{ tyre.price * $store.state.usd }} руб.</p>
-        <p class="card-text">Предназначено для техники: {{ tyre.type }}</p>
-        <p class="card-text">Жесткость по Шору: {{ tyre.meta.hardness_compound }}</p>
-        <p class="card-text">Тим использования: {{ tyre.meta.use_compound }}</p>
-        <p class="card-text">Рекомендуемое давление: {{ tyre.meta.pressure }}</p>
-        <p class="card-text">Тип рисунка: {{ tyre.meta.tread_pattern }}</p>
-        <p class="card-text">Тип погоды: {{ tyre.meta.use_pattern }}</p>
-        <p class="card-text">Диаметер покрышки: {{ tyre.meta.tyre_diameter }}</p>
-        <p class="card-text">Ширина покрышки: {{ tyre.meta.tyre_width }}</p>
-        <p class="card-text">Угол корда: {{ tyre.meta.sidewall }}</p>
-        <p class="card-text">Ширина обода: {{ tyre.meta.rim_width }}</p>
-        <a href="#" class="btn btn-primary">Подробнее</a>
+  <div class="col" v-cloak>
+    <div class="card m-1 h-100">
+      <img v-bind:src=imgURL class="card-img-top" :alt=tyre.title>
+      <div class="card-body" >
+          <h5 class="card-title">Покрышка {{ tyre.title }}</h5>
+          <p class="card-text">{{ tyre.type }}</p>
+          <p class="card-text">Жесткость по Шору: {{ tyre.meta.hardness_compound }}</p>
+      </div>
+      <div class="card-footer text-center">
+          <p class="card-text">Стоимость: {{ tyre.price * $store.state.usd }} руб.</p>
+          <div class="btn-group">
+            <a href="#" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+            <a href="#" class="btn btn-sm btn-outline-secondary">В корзину</a>
+          </div>
+          
+      </div>
     </div>
-</div>
+  </div>
+
 </template>
 
 <script>
@@ -36,5 +36,29 @@ export default {
 </script>
 
 <style>
+  [v-cloak] .v-cloak--block {
+  display: block!important;
+}
 
+[v-cloak] .v-cloak--inline {
+  display: inline!important;
+}
+
+[v-cloak] .v-cloak--inlineBlock {
+  display: inline-block!important;
+}
+
+[v-cloak] .v-cloak--hidden {
+  display: none!important;
+}
+
+[v-cloak] .v-cloak--invisible {
+  visibility: hidden!important;
+}
+
+.v-cloak--block,
+.v-cloak--inline,
+.v-cloak--inlineBlock {
+  display: none!important;
+}
 </style>
