@@ -8,7 +8,7 @@
       </div>
       <div class="card-footer text-center">
           <div class="btn-group">
-            <a href="#" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+            <router-link :to="`/product/${tyre.id}`" class="btn btn-sm btn-outline-secondary">Подробнее</router-link>
             <a href="#" class="btn btn-sm btn-outline-secondary">В корзину</a>
           </div>
           
