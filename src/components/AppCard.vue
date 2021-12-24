@@ -3,13 +3,13 @@
     <div class="card m-1 h-100">
       <img v-bind:src=imgURL class="card-img-top" :alt=tyre.title>
       <div class="card-body" >
-          <h5 class="card-title">Покрышка {{ tyre.title }}</h5>
+          <h5 class="card-title">Покрышка {{ tyre.title }} <span :class="['badge', colorHardness]">{{ tyre.meta.hardness_compound }}</span></h5>
           <p class="card-text">Стоимость: {{ tyre.price * $store.state.usd }} руб.</p>
       </div>
       <div class="card-footer text-center">
           <div class="btn-group">
             <router-link :to="`/product/${tyre.id}`" class="btn btn-sm btn-outline-secondary">Подробнее</router-link>
-            <a href="#" class="btn btn-sm btn-outline-secondary">В корзину</a>
+            <button class="btn btn-sm btn-outline-secondary" >В корзину</button>
           </div>
           
       </div>
@@ -25,10 +25,26 @@ export default {
     return {
     }
   },
+  methods: {
+
+  },
   computed: {
     imgURL() {
       return `./assets/img/small/${this.tyre.id}.jpg`
+    },
+    colorHardness() {
+      const hardness_compound = this.tyre.meta.hardness_compound
+      if (hardness_compound <= 50) {
+        return 'bg-success'
+      } else if (hardness_compound >= 51 && hardness_compound <= 59) {
+        return 'bg-warning'
+      } else if (hardness_compound >= 60) {
+        return 'bg-danger'
+      } else {
+        return 'bg-primary'
+      }
     }
+
   }
 }
 </script>

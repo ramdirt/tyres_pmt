@@ -8,25 +8,24 @@
 
 <script>
 import TheHeader from '../components/TheHeader.vue'
-import axios from 'axios'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
-  data() {
-    return {
-      url: 'https://tyres-pmt-default-rtdb.europe-west1.firebasedatabase.app/tyres.json',
-    }
-  },
   components: {
     TheHeader
   },
   methods: {
-    async loadCatalog() {
-       const res = await axios.get(this.url)
-       this.$store.state.tyres = res.data
-    }
+    ...mapActions([
+      'getProductsFromAPI'
+    ])
   },
   mounted() {
-    this.loadCatalog()
+    this.getProductsFromAPI()
+  },
+  computed: {
+    ...mapGetters([
+      'filterTyres'
+    ])
   }
 }
 </script>
