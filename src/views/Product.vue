@@ -10,8 +10,8 @@
           <div class="card" style="width: 18rem;">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">1 характеристика</li>
-                <li class="list-group-item">1 характеристика</li>
-                <li class="list-group-item">1 характеристика</li>
+                <li class="list-group-item">2 характеристика</li>
+                <li class="list-group-item">3 характеристика</li>
             </ul>
           </div>
           <button class="btn btn-danger mt-3">Добавить в корзину</button>
