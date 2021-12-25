@@ -5,6 +5,7 @@ export default createStore({
     state() {
         return {
             products: [],
+            product: {},
             diameter: '',
             shore: '',
             usd: 80,
@@ -28,7 +29,10 @@ export default createStore({
         products: state => {
             return state.products
         },
-        generateNameParameters: (state) => {
+        product: state => {
+            return state.product
+        },
+        generateNameParameters: state => {
             const uniqueNameParameters = []
 
             for (let index in state.products) {
@@ -74,21 +78,29 @@ export default createStore({
         },
         setProductsToState: (state, products) => {
             state.products = products
+        },
+        setProductToState: (state, product) => {
+            state.product = product
         }
     },
     actions: {
-        async getProductsFromAPI({commit, state}) {
-            return await axios(state.url, {
-                method: 'GET',
-            })
-            .then((products) => {
-                commit('setProductsToState', products.data)
-                return products.data;
-            })
-            .catch((error) => {
-                console.log(error)
-                return error
-            })
+        async getProductsFromAPI({commit, state}, id) {
+            return await axios.get(state.url)
+                .then((products) => {
+                    if (id) {
+                        const product = products.data.filter(product => product.id == id)[0]
+                        commit('setProductToState', product)
+                        return product;
+                    } else {
+                        commit('setProductsToState', products.data)
+                        return products.data;
+                    }
+
+                })
+                .catch((error) => {
+                    console.log(error)
+                    return error
+                })
         }
     }
 })
