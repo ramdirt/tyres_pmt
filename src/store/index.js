@@ -6,6 +6,7 @@ export default createStore({
         return {
             products: [],
             product: {},
+            basket: [],
             diameter: '',
             shore: '',
             usd: 80,
