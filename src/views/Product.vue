@@ -1,7 +1,7 @@
 <template>
   <div class="row mt-5">
       <div class="col">
-          <img v-bind:src="`../assets/img/${this.$route.params.id}.jpg`" class="img-fluid img-thumbnail" alt="...">
+          <img v-bind:src="`../assets/img/${this.$route.params.id}.jpg`" class="img-fluid img-thumbnail" :alt=product.title >
       </div>
       <div class="col" v-if="product">
           <h1 class="display-6">{{ product.title }}</h1>
@@ -44,6 +44,25 @@ export default {
     ...mapGetters([
       'product'
     ])
+  },
+  watch: {
+        $route: {
+            immediate: true,
+            handler(to, from) {
+              let title = new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    resolve(this.product.title);
+                  }, 1000);
+              })
+              .then(
+                result => {
+                  document.title = 'Покрышка ' + result
+                }
+              )
+
+              
+            }
+        },
   }
 }
 </script>
