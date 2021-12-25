@@ -8,25 +8,11 @@
 
 <script>
 import TheHeader from '../components/TheHeader.vue'
-import {mapActions, mapGetters} from 'vuex'
 
 export default {
   components: {
     TheHeader
   },
-  methods: {
-    ...mapActions([
-      'getProductsFromAPI'
-    ])
-  },
-  mounted() {
-    this.getProductsFromAPI()
-  },
-  computed: {
-    ...mapGetters([
-      'filterTyres'
-    ])
-  }
 }
 </script>
 

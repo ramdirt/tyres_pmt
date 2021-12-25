@@ -12,17 +12,25 @@
 <script>
 import AppCard from '../components/AppCard.vue'
 import TheFilter from '../components/TheFilter.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
   export default {
     components: {
       AppCard, TheFilter
     },
+    methods: {
+    ...mapActions([
+      'getProductsFromAPI'
+    ])
+    },
     computed: {
       ...mapGetters([
         'filterTyres'
       ])
-    }
+    },
+    mounted() {
+      this.getProductsFromAPI()
+    },
   }
 </script>
 
