@@ -19,6 +19,14 @@ const routes = [
     component: () => import('../views/Catalog.vue')
   },
   {
+    path: '/basket',
+    name: 'Basket',
+    meta: {
+      title: 'Корзина',
+    },
+    component: () => import('../views/Basket.vue')
+  },
+  {
     path: '/product/:id',
     name: 'Product',
     meta: {

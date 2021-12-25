@@ -7,7 +7,7 @@
           <h1 class="display-6">{{ product.title }}</h1>
           <p class="h2 mt-2">{{ product.price * $store.state.usd }} рублей</p>
           <p class="lead">{{ product.description }}</p>
-          <div class="card" style="width: 25rem;">
+          <div class="card">
             <ul class="list-group list-group-flush" v-if="product.meta">
                 <li class="list-group-item">Рекомендуемое давление: {{ product.meta.pressure }}</li>
                 <li class="list-group-item">Ширина резины: {{ product.meta.tyre_width }} мм.</li>
@@ -52,7 +52,7 @@ export default {
               let title = new Promise((resolve, reject) => {
                   setTimeout(() => {
                     resolve(this.product.title);
-                  }, 1000);
+                  }, 2000);
               })
               .then(
                 result => {

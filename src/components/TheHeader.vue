@@ -4,6 +4,7 @@
       <li class="nav-item text-danger"><router-link to="/" class="nav-link text-dark">Главная</router-link></li>
       <li class="nav-item"><router-link to="/catalog" class="nav-link text-dark">Каталог</router-link></li>
       <li class="nav-item"><router-link to="/product/1" class="nav-link text-dark">Карточка</router-link></li>
+      <li class="nav-item"><router-link to="/basket" class="nav-link text-dark">Корзина</router-link></li>
     </ul>
   </header>
 </template>
