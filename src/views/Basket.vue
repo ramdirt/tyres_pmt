@@ -11,7 +11,8 @@
         <div class="row justify-content-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-body text-center">
-                    <p>К оплате: 4500 рублей</p>
+                    
+                    <p>К оплате: {{ totalBasketValue }} рублей</p>
                     <button class="btn btn-danger">Перейти к оформлению</button>
                 </div>
             </div>
@@ -29,7 +30,7 @@ import TheBasketItem from '../components/TheBasketItem.vue'
 export default {
     computed: {
       ...mapGetters([
-        'basket'
+        'basket', 'totalBasketValue'
       ])
     },
     components: {

@@ -74,6 +74,13 @@ export default createStore({
 
             return result
         },
+        totalBasketValue: state => {
+            let totalValue = 0
+            for (let index in state.basket) {
+                totalValue += state.basket[index].quantity * state.basket[index].price * state.usd
+            }
+            return totalValue
+        }
     },
     mutations: {
         changeFilter(state, payload) {
@@ -108,7 +115,6 @@ export default createStore({
                 state.basket.splice(index, 1)
             }
 
-            
             if (action == 'increase') {
                 for (let index in state.basket) {
                     if (state.basket[index].id == id) {
