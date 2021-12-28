@@ -27,9 +27,7 @@ import {mapActions} from 'vuex'
 export default {
     props: ['product'],
     methods: {
-        ...mapActions([
-        'actionsBasket'
-        ])
+        ...mapActions('basketModule', ['actionsBasket'])
     },
 
 }
