@@ -28,10 +28,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'addToBasket',
-      'actionsBasket'
-    ]),
+    ...mapActions('basketModule', ['actionsBasket'])
   },
   computed: {
     imgURL() {
