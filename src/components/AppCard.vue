@@ -9,7 +9,7 @@
       <div class="card-footer text-center">
           <div class="btn-group">
             <router-link :to="`/product/${tyre.id}`" class="btn btn-sm btn-outline-secondary">Подробнее</router-link>
-            <button class="btn btn-sm btn-outline-secondary" >В корзину</button>
+            <button class="btn btn-sm btn-outline-secondary" @click="actionsBasket({action: 'add', id: +tyre.id})">В корзину</button>
           </div>
           
       </div>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   props: ['tyre'],
   data() {
@@ -26,7 +28,10 @@ export default {
     }
   },
   methods: {
-
+    ...mapActions([
+      'addToBasket',
+      'actionsBasket'
+    ]),
   },
   computed: {
     imgURL() {
