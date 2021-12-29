@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
-import axios from 'axios'
+
 import basketModule from './modules/basket.module'
+import requestModule from './modules/request.module'
 
 export default createStore({
     state() {
@@ -10,7 +11,6 @@ export default createStore({
             diameter: '',
             shore: '',
             usd: 80,
-            url: 'https://tyres-pmt-default-rtdb.europe-west1.firebasedatabase.app/tyres.json',
         }
     },
     getters: {
@@ -27,12 +27,7 @@ export default createStore({
                 return state.products
             }
         },
-        products: state => {
-            return state.products
-        },
-        product: state => {
-            return state.product
-        },
+
         generateNameParameters: state => {
             const uniqueNameParameters = []
 
@@ -47,6 +42,7 @@ export default createStore({
             }
             return uniqueNameParameters
         },
+
         generateUniqueValueParameters: (state, getters) => {
             const result = {}
 
@@ -70,7 +66,14 @@ export default createStore({
             }
 
             return result
-        }
+        },
+
+        products: state => {
+            return state.products
+        },
+        product: state => {
+            return state.product
+        },
     },
     mutations: {
         changeFilter(state, payload) {
@@ -82,29 +85,9 @@ export default createStore({
         },
         setProductToState: (state, product) => {
             state.product = product
-        },
-    },
-    actions: {
-        async getProductsFromAPI({commit, state}, id) {
-            return await axios.get(state.url)
-                .then((products) => {
-                    if (id) {
-                        const product = products.data.filter(product => product.id == id)[0]
-                        commit('setProductToState', product)
-                        return product;
-                    } else {
-                        commit('setProductsToState', products.data)
-                        return products.data;
-                    }
-
-                })
-                .catch((error) => {
-                    console.log(error)
-                    return error
-                })
-        }
+        }, 
     },
     modules: {
-        basketModule
+        basketModule, requestModule
     }
 })
