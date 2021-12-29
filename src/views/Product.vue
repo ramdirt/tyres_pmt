@@ -33,17 +33,13 @@ import {mapActions, mapGetters} from 'vuex'
 
 export default {
   methods: {
-    ...mapActions([
-      'getProductsFromAPI'
-    ])
+  ...mapActions('requestModule', ['getProductsFromAPI'])
   },
   mounted() {
     this.getProductsFromAPI(this.$route.params.id)
   },
   computed: {
-    ...mapGetters([
-      'product'
-    ])
+    ...mapGetters(['product'])
   },
   watch: {
         $route: {
