@@ -11,9 +11,9 @@
 
 <script>
 import TheFilterItem from '../components/TheFilterItem.vue'
+import { mapMutations } from 'vuex'
 
 export default {
-
   data() {
     return {
       diameter: '',
@@ -21,6 +21,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('filterModule', ['changeFilter']),
     changeDiameter(diameter) {
       this.diameter = diameter
       this.viewType()
@@ -30,7 +31,7 @@ export default {
       this.viewType()
     },
     viewType() {
-      this.$store.commit('changeFilter', { diameter: this.diameter, shore: this.shore})
+      this.$store.commit('filterModule/changeFilter', { diameter: this.diameter, shore: this.shore})
     }
   },
   components: {
