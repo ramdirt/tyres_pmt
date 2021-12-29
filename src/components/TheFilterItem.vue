@@ -4,7 +4,7 @@
     <div class="btn-group mb-2">
     <button
         :class="['btn', 'btn-sm', 'btn-outline-secondary', {'btn-warning': parameter == filter}]"
-        v-for="filter in $store.getters.generateUniqueValueParameters[filterName]"
+        v-for="filter in generateUniqueValueParameters[filterName]"
         :key="filter.id"
         @click.prevent="activeFilter(filter)"
     >{{filter}}
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     props: ['title', 'filterName'],
     emits: ['filterValue'],
@@ -31,7 +33,10 @@ export default {
             this.parameter = filter
             this.$emit('filterValue', filter)
         }
-    }
+    },
+    computed: {
+        ...mapGetters('filterModule', ['generateUniqueValueParameters'])
+    },
     
 }
 </script>
