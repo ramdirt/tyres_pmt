@@ -3,10 +3,13 @@
     <h5 class="card-title">{{ title }}</h5>
     <div class="btn-group mb-2">
     <button
-        :class="['btn', 'btn-sm', 'btn-outline-secondary', {'btn-warning': parameter == filter}]"
-        v-for="filter in generateUniqueValueParameters[filterName]"
-        :key="filter.id"
+        class = "btn btn-sm btn-outline-secondary"
+        :class="activeElement == filter ? 'btn-warning text-dark':''"
+        v-for="(filter, index) in generateUniqueValueParameters[filterName]"
+        some
+        :key="index"
         @click.prevent="activeFilter(filter)"
+        :disabled="numberOfSearchResults(filterName, filter) < 1"
     >{{filter}}
     </button>
     <button
@@ -25,17 +28,28 @@ export default {
     emits: ['filterValue'],
     data() {
         return {
-            parameter: ''
+            activeElement: '',
         }
     },
     methods: {
-        activeFilter(filter) {
-            this.parameter = filter
-            this.$emit('filterValue', filter)
-        }
+        activeFilter(filter) {      
+            if (this.activeElement != filter) {
+                this.activeElement = filter
+                this.$emit('filterValue', filter)     
+            } else if (this.activeElement == filter) {
+                this.activeElement = ''
+                this.$emit('filterValue', '') 
+            } else {
+                this.$emit('filterValue', '')
+            }
+        },
     },
     computed: {
-        ...mapGetters('filterModule', ['generateUniqueValueParameters'])
+        ...mapGetters('filterModule',[
+            'generateUniqueValueParameters',
+            'filterProducts',
+            'numberOfSearchResults'
+        ]),
     },
     
 }

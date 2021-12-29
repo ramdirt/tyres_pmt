@@ -2,8 +2,8 @@ export default {
     namespaced: true,
     state() {
         return {
-            diameter: '',
-            shore: '',
+            diameter: '', // диаметр колеса
+            shore: '', // жесткость по шору
         }
     },
     getters: {
@@ -19,6 +19,12 @@ export default {
             } else {
                 return rootGetters.products
             }
+        },
+
+        numberOfSearchResults: (state, getters) => (name, value) => {
+            const number = getters.filterProducts
+                .filter(product => product.meta[name] == value).length
+            return number
         },
 
         generateNameParameters: (state, getters, rootState, rootGetters) => {
