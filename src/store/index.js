@@ -10,6 +10,7 @@ export default createStore({
             products: [],
             product: {},
             usd: 80,
+            limitDownload: 5,
         }
     },
     getters: {
@@ -19,6 +20,9 @@ export default createStore({
         product: state => {
             return state.product
         },
+        downloadLimit: state => {
+            return state.limitDownload
+        }
     },
     mutations: {
         setProductsToState: (state, products) => {
@@ -26,7 +30,15 @@ export default createStore({
         },
         setProductToState: (state, product) => {
             state.product = product
-        }, 
+        },
+        changeLimitDownload: (state, count) => {
+            state.limitDownload += count 
+        }
+    },
+    actions: {
+        changeLimitDownload: ({_, commit}, count) => {
+            commit('changeLimitDownload', count)
+        }
     },
     modules: {
         basketModule, requestModule, filterModule,

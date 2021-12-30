@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       diameter: '',
-      shore: ''
+      shore: '',
     }
   },
   methods: {
@@ -34,7 +34,6 @@ export default {
       this.$store.commit('filterModule/changeFilter', { diameter: this.diameter, shore: this.shore})
     }
   },
-
   components: {
     TheFilterItem
   }
