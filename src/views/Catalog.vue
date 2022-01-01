@@ -1,6 +1,6 @@
 <template>
   <the-filter></the-filter>
-  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-3 mt-2 mt-sm-0 mb-4">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-3 mt-2 mt-sm-0 mb-4">
         <app-card
           v-for="tyre in filterProducts.slice(0, downloadLimit)"
           :key="tyre.id"

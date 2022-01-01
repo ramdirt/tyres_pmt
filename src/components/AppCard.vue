@@ -3,8 +3,11 @@
     <div class="card m-1 h-100">
       <img v-bind:src=imgURL class="card-img-top" :alt=tyre.title>
       <div class="card-body" >
-          <h5 class="card-title">Покрышка {{ tyre.title }} <span :class="['badge', colorHardness]">{{ tyre.meta.hardness_compound }}</span></h5>
-          <p class="card-text">Стоимость: {{ tyre.price * $store.state.usd }} руб.</p>
+          <h5 class="cart-title">{{ tyre.title }} </h5>
+          <p class="cart-text">{{ tyre.price * $store.state.usd }}₽</p>
+          <span :class="['badge', colorHardness]">{{ tyre.meta.hardness_compound }}</span>
+          
+          
       </div>
       <div class="card-footer text-center">
           <div class="btn-group">

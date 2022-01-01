@@ -8,7 +8,7 @@
             <p class="">
                 {{ product.price * $store.state.usd * product.quantity }} ₽
                 <small class="text-muted">
-                    ({{ product.quantity }} х {{ product.price * $store.state.usd }} ₽)
+                    ({{ product.quantity }} х {{ product.price * $store.state.usd }}₽)
                 </small>
             </p>
             <p class=""></p>

@@ -1,6 +1,5 @@
 <template>
 <div class="row mt-5 justify-content-center row-cols-1 row-cols-sm-1 row-cols-md-2">
-
     <div class="col-sm-6">
         <the-basket-item
         v-for="product in basket"
@@ -12,6 +11,7 @@
     <div class="col-sm-6 text-center ">
         <div class="row justify-content-center">
             <div class="card" style="width: 18rem;">
+                
                 <div class="card-body text-center">
                     <p>К оплате: {{ totalBasketValue }} рублей</p>
                     <button class="btn btn-danger">Перейти к оформлению</button>
