@@ -1,11 +1,17 @@
 <template>
-  <header class="d-flex justify-content-center py-3">
-    <ul class="nav nav-pills">
-      <li class="nav-item text-danger"><router-link to="/" class="nav-link text-dark">Главная</router-link></li>
-      <li class="nav-item"><router-link to="/catalog" class="nav-link text-dark">Каталог</router-link></li>
-      <li class="nav-item"><router-link to="/product/1" class="nav-link text-dark">Карточка</router-link></li>
-      <li class="nav-item"><router-link to="/basket" class="nav-link text-dark">Корзина</router-link></li>
-    </ul>
+  <header class="row py-3 justify-content-between align-items-center flex-nowrap">
+
+    <div class="col-5 col-sm-5 col-md-3">
+      <router-link to="/" class="">
+        <img :src="'./assets/index/logo.png'" class="rounded float-start" style="width: 100%" alt="PMT Tyres">
+      </router-link>  
+    </div>
+
+    <div class="col text-end">
+      <router-link to="/catalog" class="btn btn-outline-secondary mx-2" v-if="$route.name == 'Basket'"> Вернутся в каталог</router-link>
+      <router-link to="/basket" class="btn btn-warning " v-if="$route.name != 'Basket'">Корзина</router-link>
+    </div>
+
   </header>
 </template>
 

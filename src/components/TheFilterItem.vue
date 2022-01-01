@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     props: ['title', 'filterName'],
@@ -32,8 +32,9 @@ export default {
         }
     },
     methods: {
+        ...mapActions(['changeLimitDownload']),
         activeFilter(filter) {
-            this.$store.state.limit = 100    
+            this.changeLimitDownload(100)    
             if (this.activeElement != filter) {
                 this.activeElement = filter
                 this.$emit('filterValue', filter)     
