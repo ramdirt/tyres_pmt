@@ -3,13 +3,17 @@
     <h5 class="card-title">{{ title }}</h5>
     <div class="btn-group mb-2">
     <button
-        class = "btn btn-sm btn-outline-secondary"
-        :class="activeElement == filter ? 'btn-warning text-dark':''"
-        v-for="(filter, index) in generateUniqueValueParameters[filterName]"
-        some
+        :class="[
+            'btn',
+            'btn-sm',
+            'btn-outline-secondary',
+            [activeElement == filter ? 'btn-warning' : ''],
+        ]"
+        :style="[numberOfSearchResults(filterName, filter) == 0 ? 'opacity: 0.4' : '']"
         :key="index"
+        v-for="(filter, index) in generateUniqueValueParameters[filterName]"
         @click.prevent="activeFilter(filter)"
-        :disabled="numberOfSearchResults(filterName, filter) < 1"
+
     >{{filter}}
     </button>
     <button

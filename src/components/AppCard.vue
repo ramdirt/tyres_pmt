@@ -1,7 +1,7 @@
 <template>
   <div class="col" v-cloak>
     <div class="card m-1 h-100">
-      <img v-bind:src=imgURL class="card-img-top" :alt=tyre.title>
+      <img :src="`./assets/img/small/${this.tyre.id}.jpg`" class="card-img-top" :alt=tyre.title>
       <div class="card-body" >
           <h5 class="cart-title">{{ tyre.title }} </h5>
           <p class="cart-text">{{ tyre.price * $store.state.usd }}₽</p>
@@ -26,17 +26,10 @@ import { mapActions } from 'vuex'
 
 export default {
   props: ['tyre'],
-  data() {
-    return {
-    }
-  },
   methods: {
     ...mapActions('basketModule', ['actionsBasket'])
   },
   computed: {
-    imgURL() {
-      return `./assets/img/small/${this.tyre.id}.jpg`
-    },
     colorHardness() {
       const hardness_compound = this.tyre.meta.hardness_compound
       if (hardness_compound <= 50) {
@@ -50,7 +43,7 @@ export default {
       }
     }
 
-  }
+  },
 }
 </script>
 

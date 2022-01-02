@@ -1,7 +1,10 @@
 <template>
   <div class="container" v-cloak>
     <the-header v-cloak></the-header>
-    <router-view />
+    <main>
+      <router-view />
+    </main>
+    
   </div>
 
 </template>
