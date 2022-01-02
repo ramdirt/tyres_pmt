@@ -16,6 +16,9 @@ export default {
             }
             return totalValue
         },
+        numberItemsInCart: state => {
+            return state.basket.length
+        }
     },
     mutations: {
         actionsBasket: (state, {action, id, products}) => {
