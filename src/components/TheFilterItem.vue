@@ -2,24 +2,24 @@
 <div>
     <h5 class="card-title">{{ title }}</h5>
     <div class="btn-group mb-2">
-    <button
-        :class="[
-            'btn',
-            'btn-sm',
-            'btn-outline-secondary',
-            [activeElement == filter ? 'btn-warning' : ''],
-        ]"
-        :style="[numberOfSearchResults(filterName, filter) == 0 ? 'opacity: 0.4' : '']"
-        :key="index"
-        v-for="(filter, index) in generateUniqueValueParameters[filterName]"
-        @click.prevent="activeFilter(filter)"
+        <button
+            :class="[
+                'btn',
+                'btn-sm',
+                'btn-outline-secondary',
+                [activeElement == filter ? 'btn-warning' : ''],
+            ]"
+            :style="[numberOfSearchResults(filterName, filter) == 0 ? 'opacity: 0.4' : '']"
+            :key="index"
+            v-for="(filter, index) in generateUniqueValueParameters[filterName]"
+            @click.prevent="activeFilter(filter)"
 
-    >{{filter}}
-    </button>
-    <button
-        class="btn btn-sm btn-outline-secondary"
-        @click.prevent="activeFilter('')"
-    >Все</button>
+        >{{filter}}
+        </button>
+        <button
+            class="btn btn-sm btn-outline-secondary"
+            @click.prevent="activeFilter('')"
+        >Все</button>
     </div>
 </div>
 </template>

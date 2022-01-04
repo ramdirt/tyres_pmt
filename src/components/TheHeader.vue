@@ -10,7 +10,8 @@
     <div class="col text-end">
       <router-link to="/catalog" class="btn btn-outline-secondary mx-2" v-if="$route.name == 'Basket'"> Вернутся в каталог</router-link>
       <router-link to="/basket" class="btn btn-warning position-relative" v-if="$route.name != 'Basket'">
-        Корзина
+        <span class="d-none d-sm-block d-md-block d-lg-block">Корзина <i class="fas fa-shopping-basket"></i></span>
+        <span class="d-block d-sm-none d-md-none d-lg-none"><i class="fas fa-shopping-basket"></i></span>
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" v-if="numberItemsInCart > 0">
           {{numberItemsInCart}}
         </span>
