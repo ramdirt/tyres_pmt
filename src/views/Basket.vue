@@ -14,7 +14,7 @@
                 
                 <div class="card-body text-center">
                     <p>К оплате: {{ totalBasketValue }} рублей</p>
-                    <button class="btn btn-danger">Перейти к оформлению</button>
+                    <router-link to="/ordering" class="btn btn-danger">Перейти к оформлению</router-link>
                 </div>
             </div>
         </div>

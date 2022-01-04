@@ -33,7 +33,15 @@ const routes = [
       title: 'Покрышка',
     },
     component: () => import('../views/Product.vue')
-  }
+  },
+  {
+    path: '/ordering',
+    name: 'Ordering',
+    meta: {
+      title: 'Оформление заказа',
+    },
+    component: () => import('../views/Ordering.vue')
+  },
 ]
 
 const router = createRouter({
