@@ -8,18 +8,18 @@
     </tr>
   </thead>
   <tbody>
-        <component :is="'AppCardRowTable'"
+        <app-card-row-table
            v-for="(product, index) in products"
           :key="index"
           :product="product"        
-        ></component>
+        ></app-card-row-table>
   </tbody>
 </table>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import AppCardRowTable from '../components/AppCardRowTable.vue'
+import AppCardRowTable from './AppCardRowTable.vue'
 
 export default {
 data() {

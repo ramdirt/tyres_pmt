@@ -35,7 +35,7 @@ export default {
   methods: {
   ...mapActions('requestModule', ['getProductsFromAPI'])
   },
-  mounted() {
+  created: function() {
     this.getProductsFromAPI(this.$route.params.id)
   },
   computed: {
