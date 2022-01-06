@@ -9,7 +9,7 @@ export default {
         basket: state => {
             return state.basket
         },
-        totalBasketValue: (state, _, rootState) => {
+        totalBasketValue: (state, getters, rootState) => {
             let totalValue = 0
             for (let index in state.basket) {
                 totalValue += state.basket[index].quantity * state.basket[index].price * rootState.usd
@@ -18,7 +18,9 @@ export default {
         },
         numberItemsInCart: state => {
             return state.basket.length
-        }
+        },
+        
+
     },
     mutations: {
         actionsBasket: (state, {action, id, products}) => {
@@ -73,11 +75,11 @@ export default {
                     addToBasket(id)
                 }
             }
-        }
+        },
     },
     actions: {
         async actionsBasket({commit, rootState}, {action, id}) {
             await commit('actionsBasket', {action, id, products: rootState.products})
-        }
+        },
     }
 }

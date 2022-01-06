@@ -4,6 +4,10 @@
     <div class="card-body" >
         <the-filter-item title="Размер покрышки" filterName="tyre_diameter" @filterValue="changeDiameter"></the-filter-item>
         <the-filter-item title="Жесткость по Шору" filterName="hardness_compound" @filterValue="changeShore"></the-filter-item>
+
+        <div class="btn-group mb-2">
+          <button class="btn btn-outline-secondary btn-sm" @click="this.$emit('viewCatalog')">Поменять вид</button>
+        </div>
     </div>
   </div>
 </div>
@@ -14,6 +18,7 @@ import TheFilterItem from '../components/TheFilterItem.vue'
 import { mapMutations} from 'vuex'
 
 export default {
+  emits: ['viewCatalog'],
   data() {
     return {
       diameter: '',
