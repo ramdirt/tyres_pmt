@@ -7,7 +7,6 @@
       <div class="card-body" >
           <h5 class="cart-title">{{ product.title }} </h5>
           <p class="cart-text">{{ product.price * $store.state.usd }}₽</p>
-          <span :class="['badge', colorHardness]">{{ product.meta.hardness_compound }}</span>
       </div>
 
       <div class="card-footer text-center">
@@ -29,21 +28,6 @@ export default {
   props: ['product'],
   methods: {
     ...mapActions('basketModule', ['actionsBasket'])
-
-  },
-  computed: {
-    colorHardness() {
-      const hardness_compound = this.product.meta.hardness_compound
-      if (hardness_compound <= 50) {
-        return 'bg-success'
-      } else if (hardness_compound >= 51 && hardness_compound <= 59) {
-        return 'bg-warning'
-      } else if (hardness_compound >= 60) {
-        return 'bg-danger'
-      } else {
-        return 'bg-primary'
-      }
-    }
 
   },
 }

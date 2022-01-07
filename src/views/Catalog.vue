@@ -1,10 +1,10 @@
 <template>
 
-  <the-filter @viewCatalog="changeTypeProductDisplay"></the-filter>
-
+  <the-filter></the-filter>
+  <hr @click="changeTypeProductDisplay" />
   <component :is="productDisplayType" :products="filterProducts.slice(0, downloadLimit)"></component>
-
-  <div class="text-center mt-5" v-if="downloadLimit < 10">
+  <hr @click="changeTypeProductDisplay" />
+  <div class="text-center mt-2" v-if="downloadLimit < 10">
     <button class="btn btn-outline-secondary text-center" @click="changeLimitDownload(15)">Загрузить еще</button>
   </div>
 

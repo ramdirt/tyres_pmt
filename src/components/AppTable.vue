@@ -2,9 +2,8 @@
 <table class="table table-hover table-striped" >
   <thead>
     <tr>
-      <th scope="col">Название</th>
-      <th scope="col">Стоимость</th>
-      <th scope="col"></th>
+      <th>Название</th>
+      <th>Стоимость</th>
     </tr>
   </thead>
   <tbody>

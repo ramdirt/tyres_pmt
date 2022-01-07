@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="col">
     <h5 class="card-title">{{ title }}</h5>
     <div class="btn-group mb-2">
         <button
