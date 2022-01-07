@@ -3,7 +3,7 @@
 
     <div class="col-5 col-sm-5 col-md-3">
       <router-link to="/">
-        <img :src="'./assets/index/logo.png'" class="rounded float-start" style="width: 100%" alt="PMT Tyres">
+        <img :src="'/assets/index/logo.png'" class="rounded float-start" style="width: 100%" alt="PMT Tyres">
       </router-link>  
     </div>
 
