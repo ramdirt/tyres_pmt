@@ -19,6 +19,17 @@ export default {
         numberItemsInCart: state => {
             return state.basket.length
         },
+        countItemInBasket: (state, getters) => id => {
+            if (getters.basket.length > 0) {
+                const searchInBasket = getters.basket.filter(product => product.id == id).shift()
+                if (searchInBasket) {
+                    return searchInBasket.quantity
+                } else {
+                    return 0
+                }
+            }
+            return 0
+        }
         
 
     },

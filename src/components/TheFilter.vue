@@ -2,7 +2,7 @@
 <div>
   <div class="row justify-content-start align-items-end">
         <the-filter-item title="Размер покрышки" filterName="tyre_diameter" @filterValue="changeDiameter"></the-filter-item>
-        <the-filter-item title="Жесткость по Шору" filterName="hardness_compound" @filterValue="changeShore"></the-filter-item>
+        <the-filter-item title="Состав твердости" filterName="hardness_compound" @filterValue="changeShore"></the-filter-item>
   </div>
 </div>
 </template>
