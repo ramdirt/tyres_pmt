@@ -1,24 +1,27 @@
 <template>
-  <div class="row mt-2" v-if="product">
-      <div class="col">
+  <div class="row mt-3" v-if="product">
+      <div class="col-sm-12 col-md-6">
           <img v-bind:src="`../assets/img/${this.$route.params.id}.jpg`" class="img-fluid img-thumbnail" :alt=product.title >
       </div>
-      <div class="col">
-          <h1 class="lead">{{ product.title }}</h1>
-          <p class="h2 mt-2">{{ product.price * $store.state.usd }} ₽</p>
+      <div class="col-md-6">
+          <h1 class="lead mt-2">{{ product.title }}</h1>
+          <div class="row align-items-center mt-3">
+            <div class="col-4"><p class="h2">{{ product.price * $store.state.usd }} ₽</p></div>
+            <div class="col"><button class="btn btn-danger">В корзину</button></div>
+          </div>
           <p class="lead">{{ product.description }}</p>
           <div class="card">
             <ul class="list-group list-group-flush" v-if="product.meta">
-                <li class="list-group-item">Жесткость по Шору: {{ product.meta.hardness_compound }}</li>
-                <li class="list-group-item">Рекомендуемое давление: {{ product.meta.pressure }}</li>
-                <li class="list-group-item">Ширина резины: {{ product.meta.tyre_width }} мм.</li>
+                <li class="list-group-item">Состав твердости: {{ product.meta.hardness_compound }}</li>
+                <li class="list-group-item">Давление: {{ product.meta.pressure }}</li>
+                <li class="list-group-item">Ширина шины: {{ product.meta.tyre_width }} мм.</li>
                 <li class="list-group-item">Условия использования: {{ product.meta.use_pattern  }} </li>
                 <li class="list-group-item">Жесткость: {{ product.meta.use_compound }}</li>
-                <li class="list-group-item">Тип протектора: {{ product.meta.tread_pattern }}</li>
+                <li class="list-group-item">Рисунок протектора: {{ product.meta.tread_pattern }}</li>
                 <li class="list-group-item">Ширина обода: {{ product.meta.rim_width }}</li>
             </ul>
           </div>
-          <button class="btn btn-danger mt-3">Добавить в корзину</button>
+          
       </div>
   </div>
   <div v-else>

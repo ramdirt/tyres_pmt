@@ -42,6 +42,10 @@ const routes = [
     },
     component: () => import('../views/Ordering.vue')
   },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/'
+  }
 ]
 
 const router = createRouter({
