@@ -1,7 +1,13 @@
 <template>
 
   <the-filter></the-filter>
-  <hr @click="changeTypeProductDisplay" />
+  <div class="row">
+    <div class="col-1 opacity-25 pr-2" @click="changeTypeProductDisplay" style="cursor: pointer">
+      <small>Вид</small>
+    </div>
+    <div class="col-11"><hr /></div>
+  </div>
+  
   <component :is="productDisplayType" :products="filterProducts.slice(0, downloadLimit)"></component>
   <hr @click="changeTypeProductDisplay" />
   <div class="text-center mt-2" v-if="downloadLimit < 10">

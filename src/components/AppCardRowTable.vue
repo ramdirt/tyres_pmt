@@ -4,7 +4,7 @@
             @click="$router.push(`/product/${ product.id }`)"
             style="cursor: pointer"
         >{{ product.title }}</td>
-        <td class="text-end">{{ product.price * $store.state.usd }}₽</td>
+        <td class="text-start">{{ product.price * $store.state.usd }}₽</td>
         <td class="text-end">
           <div class="btn-group m-1">
 
