@@ -5,16 +5,35 @@
       <img :src="`./assets/img/small/${this.product.id}.jpg`" class="card-img-top" :alt=product.title>
 
       <div class="card-body" >
-          <h5 class="cart-title">{{ product.title }} </h5>
-          <p class="cart-text">{{ product.price * $store.state.usd }}₽</p>
-      </div>
+          <h5 class="cart-text">{{ product.title }} </h5>
 
-      <div class="card-footer text-center">
-          <div class="btn-group">
-            <router-link :to="`/product/${product.id}`" class="btn btn-sm btn-outline-secondary">Подробнее</router-link>
-            <button class="btn btn-sm btn-outline-secondary" @click="actionsBasket({action: 'add', id: +product.id})">В корзину</button>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+
+              <router-link :to="`/product/${product.id}`" class="btn btn-sm btn-outline-secondary">Подробнее</router-link>
+
+              <button
+                  v-if="countItemInBasket(product.id) > 0"
+                  class="btn btn-outline-secondary btn-sm"
+                  @click="actionsBasket({action: 'decrease', id: +product.id})">
+                      <i class="fas fa-minus"></i>
+              </button>
+
+              <button class="btn btn-sm btn-outline-secondary" @click="actionsBasket({action: 'add', id: +product.id})">
+                {{ product.price * $store.state.usd }}₽
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <span v-if="countItemInBasket(product.id) != 0">
+                    {{ countItemInBasket(product.id) }}
+                  </span>
+                </span>
+              </button>
+
+            </div>
           </div>
       </div>
+
+
+
 
     </div>
   </div>
@@ -22,7 +41,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: ['product'],
@@ -30,6 +49,9 @@ export default {
     ...mapActions('basketModule', ['actionsBasket'])
 
   },
+  computed: {
+      ...mapGetters('basketModule', ['countItemInBasket'])
+  }
 }
 </script>
 
