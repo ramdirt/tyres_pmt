@@ -1,18 +1,22 @@
-<template>
+<template lang="pug">
 
-  <the-filter></the-filter>
-  <div class="row">
-    <div class="col-1 opacity-25 pr-2" @click="changeTypeProductDisplay" style="cursor: pointer">
-      <small>Вид</small>
-    </div>
-    <div class="col-11"><hr /></div>
-  </div>
-  
-  <component :is="productDisplayType" :products="filterProducts.slice(0, downloadLimit)"></component>
-  <hr @click="changeTypeProductDisplay" />
-  <div class="text-center mt-2" v-if="downloadLimit < 10">
-    <button class="btn btn-outline-secondary text-center" @click="changeLimitDownload(15)">Загрузить еще</button>
-  </div>
+the-filter
+
+div.row
+  div.col-1.opacity-25.pr-2(
+    style='cursor: pointer',
+    @click='changeTypeProductDisplay')
+    small Вид
+  div.col-11
+    hr
+
+component(
+  :is='productDisplayType',
+  :products='filterProducts.slice(0, downloadLimit)')
+
+div.text-center.mt-2(v-if='downloadLimit < 10')
+  button.btn.btn-outline-secondary.text-center(
+    @click='changeLimitDownload(15)') Загрузить еще
 
 </template>
 

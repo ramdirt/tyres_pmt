@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-
 import basketModule from './modules/basket.module'
 import requestModule from './modules/request.module'
 import filterModule from './modules/filter.module'
@@ -42,5 +41,5 @@ export default createStore({
     },
     modules: {
         basketModule, requestModule, filterModule,
-    }
+    },
 })
