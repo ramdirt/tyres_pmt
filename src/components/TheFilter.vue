@@ -1,15 +1,22 @@
-<template>
-<div>
-  <div class="row justify-content-start align-items-end">
-        <the-filter-item title="Размер покрышки" filterName="tyre_diameter" @filterValue="changeDiameter"></the-filter-item>
-        <the-filter-item title="Состав твердости" filterName="hardness_compound" @filterValue="changeShore"></the-filter-item>
-  </div>
-</div>
+<template lang="pug">
+div
+  div.row.justify-content-start.align-items-end
+
+    the-filter-item(
+      title='Размер покрышки',
+      filterName='tyre_diameter',
+      @filterValue='changeDiameter')
+
+    the-filter-item(
+      title='Состав твердости',
+      filterName='hardness_compound',
+      @filterValue='changeShore')
+
 </template>
 
 <script>
 import TheFilterItem from '../components/TheFilterItem.vue'
-import { mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   data() {

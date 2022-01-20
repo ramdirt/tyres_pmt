@@ -1,27 +1,21 @@
-<template>
-<div class="col">
-    <h5 class="card-title">{{ title }}</h5>
-    <div class="btn-group mb-2">
-        <button
-            :class="[
-                'btn',
-                'btn-sm',
-                'btn-outline-secondary',
-                [activeElement == filter ? 'btn-warning' : ''],
-            ]"
-            :style="[numberOfSearchResults(filterName, filter) == 0 ? 'opacity: 0.4' : '']"
-            :key="index"
-            v-for="(filter, index) in generateUniqueValueParameters[filterName]"
-            @click.prevent="activeFilter(filter)"
+<template lang="pug">
+div.col
+    h5.card-title {{ title }}
+    transition(name="fade")
+        div.btn-group.mb-2(v-show="generateUniqueValueParameters")
 
-        >{{filter}}
-        </button>
-        <button
-            class="btn btn-sm btn-outline-secondary"
-            @click.prevent="activeFilter('')"
-        >Все</button>
-    </div>
-</div>
+            button(
+                v-for='(filter, index) in generateUniqueValueParameters[filterName]',
+                :key='index',
+                :class="['btn','btn-sm','btn-outline-secondary',\
+                [activeElement == filter ? 'btn-warning' : ''],]",
+                :style="[numberOfSearchResults(filterName, filter) == 0 ? 'opacity: 0.4' : '']",
+                @click.prevent='activeFilter(filter)')
+                | {{ filter }}
+
+            button.btn.btn-sm.btn-outline-secondary(
+                @click.prevent="activeFilter('')") все
+
 </template>
 
 <script>
@@ -62,5 +56,13 @@ export default {
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

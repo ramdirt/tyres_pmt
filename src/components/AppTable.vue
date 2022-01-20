@@ -1,19 +1,15 @@
-<template>
-<table class="table table-hover table-striped">
-  <thead>
-    <tr>
-      <th>Название</th>
-      <th>Стоимость</th>
-    </tr>
-  </thead>
-  <tbody>
-        <app-card-row-table
-           v-for="(product, index) in products"
-          :key="index"
-          :product="product"        
-        ></app-card-row-table>
-  </tbody>
-</table>
+<template lang="pug">
+table.table.table-hover.table-striped
+  thead
+    tr
+      th Название
+      th Стоимость
+  tbody
+    app-card-row-table(
+      v-for='(product, index) in products',
+      :key='index',
+      :product='product')
+
 </template>
 
 <script>

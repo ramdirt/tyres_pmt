@@ -1,11 +1,9 @@
-<template>
-  <div class="container" v-cloak>
-    <the-header v-cloak></the-header>
-    <main>
-      <router-view />
-    </main>
-    
-  </div>
+<template lang="pug">
+
+div.container
+  the-header
+  main
+    router-view
 
 </template>
 
@@ -18,8 +16,3 @@ export default {
   },
 }
 </script>
-
-
-<style>
-[v-cloak] { display:none; }
-</style>

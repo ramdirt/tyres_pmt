@@ -1,24 +1,21 @@
-<template>
-  <header class="row py-3 justify-content-between align-items-center flex-nowrap">
+<template lang="pug">
+header.row.py-3.justify-content-between.align-items-center.flex-nowrap
 
-    <div class="col-5 col-sm-5 col-md-3">
-      <router-link to="/">
-        <img :src="'/assets/index/logo.png'" class="rounded float-start" style="width: 100%" alt="PMT Tyres">
-      </router-link>  
-    </div>
+  div.col-5.col-sm-5.col-md-3
+    router-link(to='/')
+      img.rounded.float-start(:src="'/assets/index/logo.png'" style='width: 100%' alt='PMT Tyres')
 
-    <div class="col text-end">
-      <router-link to="/catalog" class="btn btn-outline-secondary mx-2" v-if="$route.name == 'Basket'"> Вернутся в каталог</router-link>
-      <router-link to="/basket" class="btn btn-warning position-relative" v-if="$route.name != 'Basket'">
-        <span class="d-none d-sm-block d-md-block d-lg-block">Корзина <i class="fas fa-shopping-basket"></i></span>
-        <span class="d-block d-sm-none d-md-none d-lg-none"><i class="fas fa-shopping-basket"></i></span>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" v-if="numberItemsInCart > 0">
-          {{numberItemsInCart}}
-        </span>
-        </router-link>
-    </div>
+  div.col.text-end
+    router-link.btn.btn-outline-secondary.mx-2(to='/catalog' v-if="$route.name == 'Basket'")  Вернутся в каталог
+    router-link.btn.btn-warning.position-relative(to='/basket' v-if="$route.name != 'Basket'")
+      span.d-none.d-sm-block.d-md-block.d-lg-block
+        | Корзина 
+        i.fas.fa-shopping-basket
+      span.d-block.d-sm-none.d-md-none.d-lg-none
+        i.fas.fa-shopping-basket
+      span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger(v-if='numberItemsInCart > 0')
+        | {{numberItemsInCart}}
 
-  </header>
 </template>
 
 <script>
