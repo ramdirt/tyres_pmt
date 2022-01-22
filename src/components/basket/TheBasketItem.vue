@@ -34,11 +34,10 @@ div.row.mb-5.justify-content-around
 import {mapActions} from 'vuex'
 
 export default {
-    props: ['product'],
-    methods: {
-        ...mapActions('basketModule', ['actionsBasket'])
-    },
-
+  props: ['product'],
+  methods: {
+      ...mapActions('basketModule', ['actionsBasket'])
+  },
 }
 </script>
 

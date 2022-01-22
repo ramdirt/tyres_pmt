@@ -41,6 +41,7 @@ import { mapGetters, mapActions } from 'vuex'
       ...mapActions('requestModule', ['getProductsFromAPI']),
       ...mapActions(['changeLimitDownload']),
 
+      // функция подгрузки при прокрутке
       loadingOnScroll() {
         window.onscroll = () => {
           let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight + 200 > document.documentElement.offsetHeight;
@@ -50,6 +51,7 @@ import { mapGetters, mapActions } from 'vuex'
         }
       },
       
+      // переключает стиль отображение вида с карточек на таблицу
       changeTypeProductDisplay() {
           if(this.productDisplayType == 'AppTable') {
             this.productDisplayType = 'AppList'

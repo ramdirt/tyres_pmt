@@ -13,21 +13,12 @@ import { mapGetters } from 'vuex'
 import AppCard from './AppCard.vue'
 
 export default {
-data() {
-    return {
-
+    props: ['products'],
+    components: {
+        AppCard
+    },
+    computed: {
+        ...mapGetters('filterModule',['generateNameParameters',]),
     }
-},
-props: ['products'],
-components: {
-    AppCard
-},
-computed: {
-    ...mapGetters('filterModule',['generateNameParameters',]),
-}
 }
 </script>
-
-<style>
-
-</style>

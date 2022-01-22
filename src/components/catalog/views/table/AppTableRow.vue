@@ -31,13 +31,13 @@ tr
 import {mapActions, mapGetters} from 'vuex'
 
 export default {
-props: ['product'],
-methods: {
-    ...mapActions('basketModule', ['actionsBasket']),
-},
-computed: {
-    ...mapGetters('basketModule', ['countItemInBasket'])
-}
+  props: ['product'],
+  methods: {
+      ...mapActions('basketModule', ['actionsBasket']),
+  },
+  computed: {
+      ...mapGetters('basketModule', ['countItemInBasket'])
+  }
 }
 
 </script>

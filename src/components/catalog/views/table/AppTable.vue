@@ -5,7 +5,7 @@ table.table.table-hover.table-striped
       th Название
       th Стоимость
   tbody
-    app-card-row-table(
+    app-table-row(
       v-for='(product, index) in products',
       :key='index',
       :product='product')
@@ -14,21 +14,16 @@ table.table.table-hover.table-striped
 
 <script>
 import { mapGetters } from 'vuex'
-import AppCardRowTable from './AppCardRowTable.vue'
+import AppTableRow from './AppTableRow.vue'
 
 export default {
-data() {
-    return {
-
-    }
-},
-props: ['products'],
-components: {
-    AppCardRowTable
-},
-computed: {
-    ...mapGetters('filterModule',['generateNameParameters',]),
-}
+  props: ['products'],
+  components: {
+      AppTableRow
+  },
+  computed: {
+      ...mapGetters('filterModule',['generateNameParameters',]),
+  }
 }
 </script>
 

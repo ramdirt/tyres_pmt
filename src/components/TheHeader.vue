@@ -26,5 +26,4 @@ export default {
     ...mapGetters('basketModule', ['numberItemsInCart'])
   },
 }
-
 </script>

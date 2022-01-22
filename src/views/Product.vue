@@ -41,23 +41,24 @@ export default {
     ...mapGetters(['product'])
   },
   watch: {
-        $route: {
-            immediate: true,
-            handler(to, from) {
-              let title = new Promise((resolve, reject) => {
-                  setTimeout(() => {
-                    resolve(this.product.title);
-                  }, 2000);
-              })
-              .then(
-                result => {
-                  document.title = 'Покрышка ' + result
-                }
-              )
-
-              
+    // при переходе на страницу с продуктом меняет title по шаблону
+    $route: {
+        immediate: true,
+        handler(to, from) {
+          let title = new Promise((resolve, reject) => {
+              setTimeout(() => {
+                resolve(this.product.title);
+              }, 2000);
+          })
+          .then(
+            result => {
+              document.title = 'Покрышка ' + result
             }
-        },
+          )
+
+          
+        }
+    },
   }
 }
 </script>
