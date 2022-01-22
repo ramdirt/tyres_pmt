@@ -15,7 +15,7 @@ div
 </template>
 
 <script>
-import TheFilterItem from '../components/TheFilterItem.vue'
+import TheFilterItem from './TheFilterItem.vue'
 import { mapMutations } from 'vuex'
 
 export default {

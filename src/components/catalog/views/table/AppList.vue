@@ -1,11 +1,7 @@
 <template lang="pug">
-table.table.table-hover.table-striped
-  thead
-    tr
-      th Название
-      th Стоимость
-  tbody
-    app-card-row-table(
+
+div.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-4.row-cols-xxl-5.g-3.mt-2.mt-sm-0.mb-4
+  app-card(
       v-for='(product, index) in products',
       :key='index',
       :product='product')
@@ -14,7 +10,7 @@ table.table.table-hover.table-striped
 
 <script>
 import { mapGetters } from 'vuex'
-import AppCardRowTable from './AppCardRowTable.vue'
+import AppCard from '../card/AppCard.vue'
 
 export default {
 data() {
@@ -24,7 +20,7 @@ data() {
 },
 props: ['products'],
 components: {
-    AppCardRowTable
+    AppCard
 },
 computed: {
     ...mapGetters('filterModule',['generateNameParameters',]),

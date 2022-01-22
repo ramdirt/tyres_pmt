@@ -19,7 +19,7 @@ div.row.mt-5.justify-content-center.row-cols-1.row-cols-sm-1.row-cols-md-2
 
 <script>
 import { mapGetters } from 'vuex'
-import TheBasketItem from '../components/TheBasketItem.vue'
+import TheBasketItem from '../components/basket/TheBasketItem.vue'
 
 export default {
     computed: {

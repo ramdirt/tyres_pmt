@@ -21,10 +21,10 @@ div.text-center.mt-2(v-if='downloadLimit < 10')
 </template>
 
 <script>
-import AppCard from '../components/AppCard.vue'
-import TheFilter from '../components/TheFilter.vue'
-import AppTable from '../components/AppTable.vue'
-import AppList from '../components/AppList.vue'
+import AppCard from '../components/catalog/views/card/AppCard.vue'
+import TheFilter from '../components/catalog/filter/TheFilter.vue'
+import AppTable from '../components/catalog/views/table/AppTable.vue'
+import AppList from '../components/catalog/views/table/AppList.vue'
 
 import { mapGetters, mapActions } from 'vuex'
 
