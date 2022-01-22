@@ -10,7 +10,7 @@ div.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-4.row-c
 
 <script>
 import { mapGetters } from 'vuex'
-import AppCard from '../card/AppCard.vue'
+import AppCard from './AppCard.vue'
 
 export default {
 data() {

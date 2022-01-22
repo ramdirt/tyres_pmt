@@ -14,7 +14,7 @@ table.table.table-hover.table-striped
 
 <script>
 import { mapGetters } from 'vuex'
-import AppCardRowTable from '../card/AppCardRowTable.vue'
+import AppCardRowTable from './AppCardRowTable.vue'
 
 export default {
 data() {
