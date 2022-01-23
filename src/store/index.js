@@ -32,6 +32,9 @@ export default createStore({
         },
         changeLimitDownload: (state, count) => {
             state.limitDownload += count 
+        },
+        setUSD: (state, quotes) => {
+            state.usd = quotes
         }
     },
     actions: {

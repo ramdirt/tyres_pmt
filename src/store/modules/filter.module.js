@@ -7,6 +7,7 @@ export default {
         }
     },
     getters: {
+        // Фильтр каталога
         filterProducts: (state, getters, rootState, rootGetters)  => {
             if (state.diameter && !state.shore) {
                 return rootGetters.products.filter(product => product.meta.tyre_diameter === state.diameter)
@@ -21,12 +22,14 @@ export default {
             }
         },
 
+        // Количество результатов поиска при активации фильтра в каталоге
         numberOfSearchResults: (state, getters) => (name, value) => {
             const number = getters.filterProducts
                 .filter(product => product.meta[name] == value).length
             return number
         },
 
+        // Генерация уникальный значений имен параметров
         generateNameParameters: (state, getters, rootState, rootGetters) => {
             const uniqueNameParameters = []
 
@@ -42,6 +45,7 @@ export default {
             return uniqueNameParameters
         },
 
+        // Генерация уникальный значений параметров для фильтра
         generateUniqueValueParameters: (state, getters, rootState, rootGetters) => {
             const result = {}
 
