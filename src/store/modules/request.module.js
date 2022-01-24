@@ -4,12 +4,13 @@ export default {
     namespaced: true,
     state() {
         return {
-            url: 'https://tyres-pmt-default-rtdb.europe-west1.firebasedatabase.app/tyres.json',
+            firebase: 'https://tyres-pmt-default-rtdb.europe-west1.firebasedatabase.app/tyres.json',
+            bank: 'https://www.cbr-xml-daily.ru/daily_json.js'
         }
     },
     actions: {
         async getProductsFromAPI({commit, state}, id) {
-            return await axios.get(state.url)
+            return await axios.get(state.firebase)
                 .then((products) => {
                     if (id) {
                         const product = products.data.filter(product => product.id == id).shift()
@@ -25,6 +26,21 @@ export default {
                     console.log(error)
                     return error
                 })
-        }        
+        },
+        // Получения курса рубля для преобразования цен
+        async getUSDtoRUB ({commit, state}) {
+            return await axios.get(state.bank)
+                .then((quotes) => {
+                    if (quotes) {
+                        const USD = quotes.data.Valute.USD.Value
+                        commit('setUSD', Math.ceil(USD), { root: true})
+                        return Value
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                    return error
+                })
+        }
     }
 }
