@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import basketModule from './modules/basket.module'
 import requestModule from './modules/request.module'
 import filterModule from './modules/filter.module'
+import stack from './modules/stack'
 
 export default createStore({
     state() {
@@ -43,6 +44,6 @@ export default createStore({
         }
     },
     modules: {
-        basketModule, requestModule, filterModule,
+        basketModule, requestModule, filterModule, stack
     },
 })
