@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Catalog from '../views/Catalog.vue'
 
 const routes = [
   {
@@ -16,7 +17,7 @@ const routes = [
     meta: {
       title: 'Каталог',
     },
-    component: () => import('../views/Catalog.vue')
+    component: Catalog
   },
   {
     path: '/basket',
