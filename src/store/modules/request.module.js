@@ -34,7 +34,7 @@ export default {
                     if (quotes) {
                         const USD = quotes.data.Valute.USD.Value
                         commit('setUSD', Math.ceil(USD), { root: true})
-                        return Value
+                        return USD
                     }
                 })
                 .catch((error) => {

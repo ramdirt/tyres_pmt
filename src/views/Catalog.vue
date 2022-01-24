@@ -1,16 +1,16 @@
 <template lang="pug">
 
-the-filter
+the-filter.mx-5.mt-4.mb-3
 
-div.row
-  div.col-1.opacity-25.pr-2(
+div.mb-5.mx-4
+  div.opacity-25(
     style='cursor: pointer',
     @click='changeTypeProductDisplay')
     small Вид
-  div.col-11
+  div
     hr
 
-component(
+component.mx-4(
   :is='productDisplayType',
   :products='filterProducts.slice(0, downloadLimit)')
 
@@ -34,11 +34,7 @@ import { mapGetters, mapActions } from 'vuex'
         productDisplayType: 'AppTable'
       }
     },
-    created: function () {
-      this.getProductsFromAPI()
-    },
     methods: {
-      ...mapActions('requestModule', ['getProductsFromAPI']),
       ...mapActions(['changeLimitDownload']),
 
       // функция подгрузки при прокрутке

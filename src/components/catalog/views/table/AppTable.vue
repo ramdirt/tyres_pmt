@@ -1,9 +1,10 @@
 <template lang="pug">
-table.table.table-hover.table-striped
-  thead
+table.table-auto
+  thead.bg-gray-50.dark_bg-gray-700
     tr
-      th Название
-      th Стоимость
+      th.py-3.px-6.text-xs.font-medium.tracking-wider.text-left.text-gray-700.uppercase.dark_text-gray-400 Название
+      th.py-3.px-6.text-xs.font-medium.tracking-wider.text-left.text-gray-700.uppercase.dark_text-gray-400 Стоимость
+      th.py-3.px-6.text-xs.font-medium.tracking-wider.text-left.text-gray-700.uppercase.dark_text-gray-400
   tbody
     app-table-row(
       v-for='(product, index) in products',

@@ -1,15 +1,14 @@
 <template lang="pug">
 
-div.container
-  the-header
-  main
-    router-view
+the-header.container.mx-auto
+main.container.mx-auto
+  router-view
 
 </template>
 
 <script>
 import TheHeader from '../components/TheHeader.vue'
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
@@ -17,9 +16,10 @@ export default {
   },
   created: function() {
     this.getUSDtoRUB()
+    this.getProductsFromAPI()
   },
   methods: {
-      ...mapActions('requestModule', ['getUSDtoRUB']),    
+      ...mapActions('requestModule', ['getUSDtoRUB', 'getProductsFromAPI']),    
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  div.row.justify-content-start.align-items-end
+  div.flex.flex-row.gap-5.flex-wrap
 
     the-filter-item(
       title='Размер покрышки',

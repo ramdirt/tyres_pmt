@@ -1,19 +1,20 @@
 <template lang="pug">
 div.col
-    h5.card-title {{ title }}
+    h5.mb-1 {{ title }}
     transition(name="fade")
-        div.btn-group.mb-2(v-show="generateUniqueValueParameters")
+        div.inline-flex.rounded-md.shadow-sm(
+            role="group"
+            v-show="generateUniqueValueParameters")
 
-            button(
+            button.btn-filter-center(
                 v-for='(filter, index) in generateUniqueValueParameters[filterName]',
                 :key='index',
-                :class="['btn','btn-sm','btn-outline-secondary',\
-                [activeElement == filter ? 'btn-warning' : ''],]",
+                :class="[activeElement == filter ? 'bg-yellow-300' : ''],[index == 0? 'btn-filter-start': '']",
                 :style="[numberOfSearchResults(filterName, filter) == 0 ? 'opacity: 0.4' : '']",
                 @click.prevent='activeFilter(filter)')
                 | {{ filter }}
 
-            button.btn.btn-sm.btn-outline-secondary(
+            button.btn-filter-end(
                 @click.prevent="activeFilter('')") все
 
 </template>
